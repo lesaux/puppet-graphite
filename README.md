@@ -100,7 +100,6 @@ fan:
     pickle_receiver_interface: 0.0.0.0
     pickle_receiver_port: 2414
     relay_method: consistent-hashing
-    replication_factor: 2
     destinations: localhost:2104:a, localhost:2204:b
     max_datapoints_per_message: 500
     max_queue_size: 100000
