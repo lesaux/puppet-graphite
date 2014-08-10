@@ -2,7 +2,7 @@
 
 ###Warning
 
-This work is not complete yet, but it should work.
+This work is not complete yet, but it should work. I haven't worked on the carbon-aggregator yet.
 
 ###Overview
 
