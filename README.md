@@ -76,7 +76,7 @@ But you can also cover more complex graphite architectures, such as:
 carbon-cache-a       carbon-cache-b                     carbon-cache-a             carbon-cache-b
 ```
 
-With a hash such as this one:
+With a hash such as this one per node:
 
 ```
 rep:
