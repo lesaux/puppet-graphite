@@ -18,7 +18,7 @@ I've created a simple graphite::carbon resource, which is used by the graphite::
 
 
 To setup a node, you would need to include the graphite class, as well as the graphite::carbons class.
-You need to declare your setup in the form of a hash.
+You need to declare your setup in the form of a hash. You will need to set the enable_carbon_relay and the enable_carbon_aggregator to true if you want to use them.
 
 
 ###Examples
