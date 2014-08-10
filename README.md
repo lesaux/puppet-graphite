@@ -2,8 +2,8 @@
 
 ###Warning
 
-This work is not complete yet, but it should work. I haven't worked on the carbon-aggregator yet.
-There is also more cleaning up to remove some paramaters I am not using anymore.
+This work is not complete yet, but it should work. I haven't worked on the carbon-aggregator yet. There are some ordering issues as well.
+There is more cleaning up to remove some paramaters I am not using anymore.
 Make sure your carbon configuration has a correct syntax, as the module doesn't do any sort of verification.
 
 
