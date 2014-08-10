@@ -52,28 +52,28 @@ a:
 But you can also cover more complex graphite architectures, such as:
 
 ```
-                                       LoadBalancer
-                                       +          +
-                                       |          |
-                    +------------------+          +-------------------- 
-                    |                                                 |
-                    v                                                 v
-       carbon-relay-replication                               carbon-relay-replication
-                  +   +                                               +    +
-                  |   |                                               |    |
-                  |   |                                               |    |
-                  |   +--------------------------------------------+  |    |
- GRAPHITE NODE 1  |                                                |  |    | GRAPHITE NODE 2
-                  |   +-----------------------------------------------+    |
-                  |   |                                            |       |
-                  |   |                                            |       |
-                  v   v                                            v       v
-        carbon-relay-fanout                                      carbon-relay-fanout
-        +                 +                                      +                 +  
-        |                 |                                      |                 |
-        |                 |                                      |                 |                  
-        v                 v                                      v                 v                                  
-carbon-cache-a       carbon-cache-b                     carbon-cache-a             carbon-cache-b
+-                                       LoadBalancer
+-                                       +          +
+-                                       |          |
+-                    +------------------+          +-------------------- 
+-                    |                                                 |
+-                    v                                                 v
+-       carbon-relay-replication                               carbon-relay-replication
+-                  +   +                                               +    +
+-                  |   |                                               |    |
+-                  |   |                                               |    |
+-                  |   +--------------------------------------------+  |    |
+- GRAPHITE NODE 1  |                                                |  |    | GRAPHITE NODE 2
+-                  |   +-----------------------------------------------+    |
+-                  |   |                                            |       |
+-                  |   |                                            |       |
+-                  v   v                                            v       v
+-        carbon-relay-fanout                                      carbon-relay-fanout
+-        +                 +                                      +                 +  
+-        |                 |                                      |                 |
+-        |                 |                                      |                 |                  
+-        v                 v                                      v                 v                                  
+-carbon-cache-a       carbon-cache-b                     carbon-cache-a             carbon-cache-b
 ```
 
 With a hash such as this one per node:
