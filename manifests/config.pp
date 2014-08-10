@@ -114,63 +114,12 @@ class graphite::config inherits graphite::params {
     }
   }
 
-  # configure carbon engines
-  if $::graphite::gr_enable_carbon_relay and $::graphite::gr_enable_carbon_aggregator {
-    $notify_services = [
-      Service['carbon-aggregator'],
-      Service['carbon-relay'],
-      Service['carbon-cache']
-    ]
-  }
-  elsif $::graphite::gr_enable_carbon_relay {
-    $notify_services = [
-      Service['carbon-relay'],
-      Service['carbon-cache']
-    ]
-  }
-  elsif $::graphite::gr_enable_carbon_aggregator {
-    $notify_services = [
-      Service['carbon-aggregator'],
-      Service['carbon-cache']
-    ]
-  }
-  else {
-    $notify_services = [ Service['carbon-cache'] ]
-  }
-
-  if $::graphite::gr_enable_carbon_relay {
-
-    file {
-      '/opt/graphite/conf/relay-rules.conf':
-        mode    => '0644',
-        content => template('graphite/opt/graphite/conf/relay-rules.conf.erb'),
-        notify  => $notify_services;
-    }
-  }
-
-  if $::graphite::gr_enable_carbon_aggregator {
-
-    file {
-      '/opt/graphite/conf/aggregation-rules.conf':
-      mode    => '0644',
-      content => template('graphite/opt/graphite/conf/aggregation-rules.conf.erb'),
-      notify  => $notify_services;
-    }
-  }
 
   file {
     '/opt/graphite/conf/storage-schemas.conf':
       mode    => '0644',
       content => template('graphite/opt/graphite/conf/storage-schemas.conf.erb'),
       notify  => $notify_services;
-    '/opt/graphite/conf/carbon.conf':
-      mode    => '0644',
-      content => template('graphite/opt/graphite/conf/carbon.conf.erb'),
-      notify  => $notify_services;
-    '/opt/graphite/conf/storage-aggregation.conf':
-      mode    => '0644',
-      content => template('graphite/opt/graphite/conf/storage-aggregation.conf.erb'),
-      #notify  => $notify_services;
   }
 
 
@@ -190,54 +139,4 @@ class graphite::config inherits graphite::params {
     require => File['/opt/graphite/bin/carbon-logrotate.sh'];
   }
 
-  # startup carbon engine
-
-  service { 'carbon-cache':
-    ensure     => running,
-    enable     => true,
-    hasstatus  => true,
-    hasrestart => true,
-    require    => File['/etc/init.d/carbon-cache'];
-  }
-
-  file { '/etc/init.d/carbon-cache':
-    ensure  => file,
-    mode    => '0750',
-    content => template('graphite/etc/init.d/carbon-cache.erb'),
-    require => File['/opt/graphite/conf/carbon.conf'];
-  }
-
-  if $graphite::gr_enable_carbon_relay {
-    service { 'carbon-relay':
-      ensure     => running,
-      enable     => true,
-      hasstatus  => true,
-      hasrestart => true,
-      require    => File['/etc/init.d/carbon-relay'];
-    }
-
-    file { '/etc/init.d/carbon-relay':
-      ensure  => file,
-      mode    => '0750',
-      content => template('graphite/etc/init.d/carbon-relay.erb'),
-      require => File['/opt/graphite/conf/carbon.conf'];
-    }
-  }
-
-  if $graphite::gr_enable_carbon_aggregator {
-    service {'carbon-aggregator':
-      ensure     => running,
-      enable     => true,
-      hasstatus  => true,
-      hasrestart => true,
-      require    => File['/etc/init.d/carbon-aggregator'];
-    }
-
-    file { '/etc/init.d/carbon-aggregator':
-      ensure  => file,
-      mode    => '0750',
-      content => template('graphite/etc/init.d/carbon-aggregator.erb'),
-      require => File['/opt/graphite/conf/carbon.conf'];
-    }
-  }
 }

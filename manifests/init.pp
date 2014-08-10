@@ -425,3 +425,36 @@ class graphite (
   anchor { 'graphite::end':}
 
 }
+
+class graphite::carbons($daemons) {
+
+  require graphite::install
+
+  validate_hash($daemons)
+
+  if $::graphite::gr_enable_carbon_relay {
+    file {
+      '/opt/graphite/conf/relay-rules.conf':
+        #mode => '0644',
+        mode => '0744',
+        content => template('graphite/opt/graphite/conf/relay-rules.conf.erb'),
+        #notify => $notify_services;
+    }
+  }
+
+  if $::graphite::gr_enable_carbon_aggregator {
+
+    file {
+      '/opt/graphite/conf/aggregation-rules.conf':
+      mode    => '0644',
+      content => template('graphite/opt/graphite/conf/aggregation-rules.conf.erb'),
+      notify  => $notify_services;
+    }
+  }
+
+
+create_resources('graphite::carbon', $daemons)
+
+}
+
+
