@@ -26,7 +26,7 @@ In the dwerder/graphite module, a single carbon-cache is configured. Here, a con
 
 ```
 a:
-  type: cache
+  carbontype: cache
   conf:
     cache_write_strategy: sorted
     max_cache_size: inf
@@ -80,7 +80,7 @@ With a hash such as this one per node:
 
 ```
 rep:
-  type: relay
+  carbontype: relay
   conf:
     line_receiver_interface: 0.0.0.0
     line_receiver_port: 2213
@@ -93,7 +93,7 @@ rep:
     max_queue_size: 100000
     use_flow_control: true
 fan:
-  type: relay
+  carbontype: relay
   conf:
     line_receiver_interface: 0.0.0.0
     line_receiver_port: 2413
@@ -105,7 +105,7 @@ fan:
     max_queue_size: 100000
     use_flow_control: true
 a:
-  type: cache
+  carbontype: cache
   conf:
     cache_write_strategy: sorted
     max_cache_size: inf
@@ -127,7 +127,7 @@ a:
     enable_logrotation: True
     whisper_autoflush: False
 b:
-  type: cache
+  carbontype: cache
   conf:
     cache_write_strategy: sorted
     max_cache_size: inf
