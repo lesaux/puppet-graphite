@@ -428,7 +428,7 @@ class graphite (
 
 class graphite::carbons($daemons) {
 
-  require graphite::install
+  #require graphite::install
 
   validate_hash($daemons)
 
