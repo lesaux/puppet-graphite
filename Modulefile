@@ -1,7 +1,7 @@
 name 'lesaux-graphite'
 version '0.0.1'
 source 'git clone https://github.com/lesaux/puppet-graphite.git'
-author 'adapte from Daniel Werdermann by Pierig Le Saux'
+author 'adapted from Daniel Werdermann by Pierig Le Saux'
 license 'Mozilla Public License Version 2.0'
 summary 'Graphite Monitoring Module'
 description 'This module installs and makes advanced configs for graphite, with carbon and whisper'
