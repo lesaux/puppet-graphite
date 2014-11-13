@@ -17,8 +17,10 @@ I've created a simple graphite::carbon resource, which is used by the graphite::
 ###Usage
 
 
-To setup a node, you would need to include the graphite class, as well as the graphite::carbons class.
-You need to declare your setup in the form of a hash. You will need to set the enable_carbon_relay and the enable_carbon_aggregator to true if you want to use them.
+To setup a node, you would need to include the graphite class and describe several important configuration parameters.
+One of the is the gr_carbon_daemons which describes your carbon(s) configurations.
+You need to declare your setup in the form of a hash. A default carbon-cache instance is provided below and as a default in the init.pp file.
+ You will need to set the enable_carbon_relay and the enable_carbon_aggregator to true if you want to use them.
 
 
 ###Examples
