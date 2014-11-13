@@ -24,6 +24,6 @@ class graphite::carbons {
   }
 
 
-create_resources('graphite::carbon', $gr_carbon_daemons)
+create_resources('graphite::carbon', $graphite::gr_carbon_daemons)
 
 }
