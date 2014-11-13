@@ -1,8 +1,7 @@
-class graphite::carbons($gr_carbon_daemons) {
+class graphite::carbons {
 
   #require graphite::install
-
-  validate_hash($gr_carbon_daemons)
+  #validate_hash($gr_carbon_daemons)
 
   if $::graphite::gr_enable_carbon_relay {
     file {
