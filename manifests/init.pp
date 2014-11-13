@@ -269,7 +269,9 @@
 #   variable (mainly for nginx use) to tell Graphite a user is authenticated.
 #   Useful when using an external auth handler with X-Accel-Redirect etc.
 #   Example value - HTTP_X_REMOTE_USER
-
+# [*gr_carbon_daemons*]
+#   A hash that describes either a carbon-relay or carbon-cache configuration.
+# 
 # === Examples
 #
 # class {'graphite':
@@ -408,7 +410,33 @@ class graphite (
   $gr_ldap_user_query           = '(username=%s)',
   $gr_use_remote_user_auth      = 'False',
   $gr_remote_user_header_name   = undef,
-  $gr_local_data_dir            = '/opt/graphite/storage/whisper'
+  $gr_local_data_dir            = '/opt/graphite/storage/whisper',
+  $gr_carbon_daemons            = {
+      a   => {
+        carbontype => cache,
+        conf       => {
+          cache_write_strategy      => sorted,
+          max_cache_size            => inf,
+          use_flow_control          => True,
+          whisper_fallocate_create  => True,
+          max_creates_per_minute    => 3000,
+          max_updates_per_second    => 10000,
+          line_receiver_interface   => '0.0.0.0',
+          line_receiver_port        => 2203,
+          pickle_receiver_interface => '0.0.0.0',
+          pickle_receiver_port      => '2204',
+          use_insecure_unpickler    => 'False',
+          cache_query_interface     => '0.0.0.0',
+          cache_query_port          => 7202,
+          log_cache_hits            => False,
+          log_cache_queue_sorts     => True,
+          log_listener_connections  => True,
+          log_updates               => False,
+          enable_logrotation        => True,
+          whisper_autoflush         => False
+        }
+      }
+    }
 ) {
   # Validation of input variables.
   # TODO - validate all the things
