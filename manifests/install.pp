@@ -51,10 +51,10 @@ class graphite::install(
     }
   }
 
-  package { $::graphite::params::graphitepkgs :
-    ensure   => 'installed',
-    provider => undef, # default to package provider auto-discovery
-  }->
+  #package { $::graphite::params::graphitepkgs :
+  #  ensure   => 'installed',
+  #  provider => undef, # default to package provider auto-discovery
+  #}->
   package{'django-tagging':
     ensure   => $django_tagging_ver,
   }->
