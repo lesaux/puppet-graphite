@@ -1,4 +1,4 @@
 [<%= @carbontype %>:<%= @name %>]
-<% conf.keys.sort.each do |key| -%>
+<% @conf.keys.sort.each do |key| -%>
 <%= key %>  =  <%= @conf[key] %>
 <% end -%>
