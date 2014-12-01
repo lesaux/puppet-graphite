@@ -448,6 +448,7 @@ class graphite (
   # the composite class.
   # https://projects.puppetlabs.com/projects/puppet/wiki/Anchor_Pattern
   anchor { 'graphite::begin':}->
+  class { 'graphite::params':}->
   class { 'graphite::prereqs':}->
   class { 'graphite::install':}~>
   class { 'graphite::config':}->

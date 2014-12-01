@@ -8,10 +8,12 @@
 #
 class graphite::prereqs {
 
- case $::osfamily {
-   'redhat': {
-     include epel
-   }
- }
+  case $::osfamily {
+    'redhat': {
+      include epel
+    }
+  }
+
+  ensure_packages ( $::graphite::params::graphitepkgs )
 
 }
