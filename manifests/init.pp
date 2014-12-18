@@ -404,6 +404,8 @@ class graphite (
   $gr_cluster_find_timeout      = 2.5,
   $gr_cluster_retry_delay       = 60,
   $gr_cluster_cache_duration    = 300,
+  $gr_carbonlink_hosts          = [],
+  $gr_carbonlink_timeout        = '0.1',
   $nginx_htpasswd               = undef,
   $manage_ca_certificate        = true,
   $gr_use_ldap                  = false,
