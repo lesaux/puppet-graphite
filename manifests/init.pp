@@ -242,6 +242,10 @@
 #    Time before retrying a failed remote webapp.  Default = 60
 # [*gr_cluster_cache_duration*]
 #    Time to cache remote metric find results.  Default = 300
+# [*gr_carbonlink_hosts*]
+#    list of IP:port tubles for the local carbon caches
+# [*gr_carbonlink_timeout*]
+#    Timeout to carbon-caches.   Default = 1.0
 # [*nginx_htpasswd*]
 #   The user and salted SHA-1 (SSHA) password for Nginx authentication.
 #   If set, Nginx will be configured to use HTTP Basic authentication with the
