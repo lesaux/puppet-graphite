@@ -225,7 +225,7 @@ REMOTE_FIND_CACHE_DURATION = <%= scope.lookupvar('graphite::gr_cluster_cache_dur
 #CARBONLINK_TIMEOUT = 1.0
 <% else -%>
 CARBONLINK_HOSTS = ['<%= scope.lookupvar('graphite::gr_carbonlink_hosts').join("','") %>']
-CARBONLINK_TIMEOUT = '<%= scope.lookupvar('graphite::gr_carbonlink_timeout' %>
+CARBONLINK_TIMEOUT = '<%= scope.lookupvar('graphite::gr_carbonlink_timeout') %>'
 <% end -%>
 
 #####################################
