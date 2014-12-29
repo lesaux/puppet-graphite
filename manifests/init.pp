@@ -441,8 +441,8 @@ class graphite (
           enable_logrotation        => True,
           whisper_autoflush         => False
         }
-      }
-    },
+      },
+  },
   $gr_graphtemplates           = {
     default   => {
       background => 'black',
