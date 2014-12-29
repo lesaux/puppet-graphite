@@ -1,0 +1,4 @@
+[<%= @gr_carbonate_clustername %>]
+DESTINATIONS = <%= scope.lookupvar('graphite::carbonate::gr_carbonate_servers').join(',') %>
+REPLICATION_FACTOR = <%= @gr_carbonate_repfactor %>
+SSH_USER = <%= @gr_carbonate_user %>
