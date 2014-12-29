@@ -273,6 +273,8 @@
 #   Example value - HTTP_X_REMOTE_USER
 # [*gr_carbon_daemons*]
 #   A hash that describes either a carbon-relay or carbon-cache configuration.
+# [*gr_graphTemplates*]
+#  A hash that describes graph templates
 # 
 # === Examples
 #
@@ -281,7 +283,8 @@
 #   gr_enable_udp_listener => True,
 #   gr_timezone            => 'Europe/Berlin'
 # }
-#
+
+
 class graphite (
   $gr_group                     = '',
   $gr_user                      = '',
@@ -439,7 +442,49 @@ class graphite (
           whisper_autoflush         => False
         }
       }
+    },
+  $gr_graphtemplates           = {
+    default   => {
+      background => 'black',
+      foreground => 'white',
+      majorLine  => 'white',
+      minorLine  => 'grey',
+      lineColors => 'blue,green,red,purple,brown,yellow,aqua,grey,magenta,pink,gold,rose',
+      fontName   => 'LucidaTypewriter',
+      fontSize   => '10',
+      fontBold   => 'False',
+      fontItalic => 'False'
+    },
+    noc     => {
+      background => 'black',
+      foreground => 'white',
+      majorLine  => 'white',
+      minorLine  => 'grey',
+      lineColors => 'blue,green,red,purple,brown,yellow,aqua,grey,magenta,pink,gold,rose',
+      fontName   => 'LucidaTypewriter',
+      fontSize   => '10',
+      fontBold   => 'False',
+      fontItalic => 'False'
+    },
+    plain   => {
+      background => 'white',
+      foreground => 'black',
+      majorLine  => 'grey',
+      minorLine  => 'rose',
+    },
+    summary => {
+      background => 'black',
+      lineColors => '#6666ff, #66ff66, #ff6666',
+    },
+    alphas   => {
+      background => 'white',
+      foreground => 'black',
+      majorLine  => 'grey',
+      minorLine  => 'rose',
+      lineColors => '00ff00aa,ff000077,00337799',
     }
+  }
+
 ) {
   # Validation of input variables.
   # TODO - validate all the things

@@ -102,6 +102,14 @@ class graphite::config inherits graphite::params {
       require => $web_server_package_require;
   }
 
+  file {
+    '/opt/graphite/conf/graphTemplates.conf':
+      mode    => '0644',
+      content => template('graphite/opt/graphite/conf/graphTemplates.conf.erb'),
+      notify  => $notify_services;
+  }
+
+
   if $::graphite::gr_remote_user_header_name != undef {
     file {
       '/opt/graphite/webapp/graphite/custom_auth.py':
