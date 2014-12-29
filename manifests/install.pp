@@ -87,16 +87,4 @@ class graphite::install(
     target => $::graphite::params::gweb_pip_hack_target,
   }
 
-  if $::graphite::gr_install_carbonate {
-    package{'carbonate':
-      ensure   => present,
-      provider => pip,
-    }
-  } else {
-    package{'carbonate':
-      ensure   => absent,
-      provider => pip,
-    }
-  }
-
 }

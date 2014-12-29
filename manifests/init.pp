@@ -504,6 +504,7 @@ class graphite (
   class { 'graphite::install':}~>
   class { 'graphite::config':}->
   class { 'graphite::carbons':}->
+  class { 'graphite::carbonate':}->
   anchor { 'graphite::end':}
 
 }
