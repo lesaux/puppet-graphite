@@ -14,13 +14,13 @@
 
 case "$1" in
 	start)
-		python /opt/graphite/bin/carbon-<%= @carbontype %>.py --config=/opt/graphite/conf/carbon-<%= @carbontype %>_<%= @carbonname %>.conf --instance=<%= @carbonname %> start
+		su -c 'python /opt/graphite/bin/carbon-<%= @carbontype %>.py --config=/opt/graphite/conf/carbon-<%= @carbontype %>_<%= @carbonname %>.conf --instance=<%= @carbonname %> start' <%= scope.lookupvar('graphite::gr_user') %>
 		;;
 	stop)
-		python /opt/graphite/bin/carbon-<%= @carbontype %>.py --config=/opt/graphite/conf/carbon-<%= @carbontype %>_<%= @carbonname %>.conf --instance=<%= @carbonname %> stop
+		su -c 'python /opt/graphite/bin/carbon-<%= @carbontype %>.py --config=/opt/graphite/conf/carbon-<%= @carbontype %>_<%= @carbonname %>.conf --instance=<%= @carbonname %> stop' <%= scope.lookupvar('graphite::gr_user') %>
 		;;
 	status)
-		python /opt/graphite/bin/carbon-<%= @carbontype %>.py --config=/opt/graphite/conf/carbon-<%= @carbontype %>_<%= @carbonname %>.conf --instance=<%= @carbonname %> status
+		su -c 'python /opt/graphite/bin/carbon-<%= @carbontype %>.py --config=/opt/graphite/conf/carbon-<%= @carbontype %>_<%= @carbonname %>.conf --instance=<%= @carbonname %> status' <%= scope.lookupvar('graphite::gr_user') %>
 		;;
 	restart)
 		$0 stop ; sleep 3 ; $0 start
