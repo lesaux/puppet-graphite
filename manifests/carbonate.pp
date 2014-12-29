@@ -1,6 +1,6 @@
 class graphite::carbonate (
 
-  $destination			= '/opt/graphite/conf'
+  $destination			= '/opt/graphite/conf',
   $gr_carbonate_clustername     = 'main',
   $gr_carbonate_servers         = undef,
   $gr_carbonate_repfactor       = '2',
