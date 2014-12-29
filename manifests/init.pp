@@ -444,7 +444,7 @@ class graphite (
       },
   },
   $gr_graphtemplates           = {
-    default   => {
+    'default'   => {
       background => 'black',
       foreground => 'white',
       majorLine  => 'white',
