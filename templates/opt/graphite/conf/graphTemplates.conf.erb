@@ -1,4 +1,3 @@
-[<%= @name %>]
-<% @name.keys.sort.each do |key| -%>
-<%= key %>  =  <%= @name[key] %>
+<%- @gr_graphtemplates.keys.each_with_index do |graphtemplate|  -%>
+[<%= @graphtemplate %>]
 <% end -%>
