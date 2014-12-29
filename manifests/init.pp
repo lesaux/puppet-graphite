@@ -244,6 +244,8 @@
 #    list of IP:port tubles for the local carbon caches
 # [*gr_carbonlink_timeout*]
 #    Timeout to carbon-caches.   Default = 1.0
+# [*gr_install_carbonate*]
+#    Install carbonate from pip
 # [*nginx_htpasswd*]
 #   The user and salted SHA-1 (SSHA) password for Nginx authentication.
 #   If set, Nginx will be configured to use HTTP Basic authentication with the
@@ -406,6 +408,7 @@ class graphite (
   $gr_cluster_cache_duration    = 300,
   $gr_carbonlink_hosts          = undef,
   $gr_carbonlink_timeout        = '0.1',
+  $gr_install_carbonate         = 'False',
   $nginx_htpasswd               = undef,
   $manage_ca_certificate        = true,
   $gr_use_ldap                  = false,
