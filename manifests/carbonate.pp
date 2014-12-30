@@ -1,10 +1,10 @@
 class graphite::carbonate (
 
   $destination			= '/opt/graphite/conf',
-  $gr_carbonate_clustername     = 'main',
-  $gr_carbonate_servers         = undef,
-  $gr_carbonate_repfactor       = '2',
-  $gr_carbonate_user            = 'carbon',
+  $gr_carbonate_clustername     = $::graphite::gr_carbonate_clustername,
+  $gr_carbonate_servers         = $::graphite::gr_carbonate_servers,
+  $gr_carbonate_repfactor       = $::graphite::gr_carbonate_repfactor,
+  $gr_carbonate_user            = $::graphite::gr_carbonate_user,
 
 ) {
 
