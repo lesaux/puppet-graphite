@@ -56,7 +56,7 @@ class graphite::config inherits graphite::params {
   # change access permissions for web server
 
   exec { 'Chown graphite for web user':
-    command     => "chown -R ${::graphite::params::web_user}:${::graphite::params::web_group} /opt/graphite/storage/",
+    command     => "chown -R ${::graphite::params::web_user}:${::graphite::params::web_group} /opt/graphite/storage/; chmod -R g+rw /opt/graphite/storage",
     cwd         => '/opt/graphite/',
     refreshonly => true,
     require     => $web_server_package_require,
