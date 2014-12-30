@@ -8,6 +8,12 @@ class graphite::carbonate (
 
 ) {
 
+  case $::osfamily {
+    'redhat': {
+      ensure_packages('python-argparse')
+    }
+  }
+
   if $::graphite::gr_install_carbonate {
     package{'carbonate':
       ensure   => present,
