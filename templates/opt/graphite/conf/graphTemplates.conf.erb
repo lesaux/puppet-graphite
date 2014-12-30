@@ -1,6 +1,6 @@
-<%- @gr_graphtemplates.keys.each do |graphtemplate|  -%>
+<%- @gr_graphtemplates.keys.sort.each do |graphtemplate|  -%>
 [<%= "#{graphtemplate}" %>]
-<%- @gr_graphtemplates[graphtemplate].keys.each do |graphtemplate_attr| -%>
+<%- @gr_graphtemplates[graphtemplate].keys.sort.each do |graphtemplate_attr| -%>
 <%= "#{graphtemplate_attr} = #{@gr_graphtemplates[graphtemplate][graphtemplate_attr]}" %>
 <%- end -%>
 
