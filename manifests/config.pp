@@ -51,7 +51,7 @@ class graphite::config inherits graphite::params {
     refreshonly => true,
     subscribe   => Class['graphite::install'],
     require     => File['/opt/graphite/webapp/graphite/local_settings.py'],
-    notify      => $notify_services,
+    notify      => Service[$::graphite::params::apache_service_name],
   }~>
 
   # change access permissions for web server
